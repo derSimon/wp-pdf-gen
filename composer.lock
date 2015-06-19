@@ -1,0 +1,60 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "6601bf24472b5f25c4c99440975b91a5",
+    "packages": [
+        {
+            "name": "appotter/mpdf",
+            "version": "6.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/appotter/mpdf.git",
+                "reference": "5a45232e417c57ee9ca78b8f9a03e78bd4e245fe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/appotter/mpdf/zipball/5a45232e417c57ee9ca78b8f9a03e78bd4e245fe",
+                "reference": "5a45232e417c57ee9ca78b8f9a03e78bd4e245fe",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.0.3"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "mpdf.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Ian Back"
+                }
+            ],
+            "description": "A PHP class to generate PDF files from HTML with Unicode/UTF-8 and CJK support",
+            "homepage": "http://www.mpdf1.com",
+            "keywords": [
+                "pdf",
+                "php",
+                "utf-8"
+            ],
+            "time": "2015-03-16 08:43:19"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
