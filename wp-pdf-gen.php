@@ -22,10 +22,12 @@ $pdfGenerator = new Wp_Pdf_Gen();
 add_shortcode('pdf', array($pdfGenerator,'addPdfLink'));
 
 add_action('publish_post', array($pdfGenerator,'generatePdf'));
+add_action('publish_page', array($pdfGenerator,'generatePdf'));
 
 /**
 * Add Settings Link
 */
+
 if(isset($pdfGenerator)){
 
     //Add the settings link to the plugins page

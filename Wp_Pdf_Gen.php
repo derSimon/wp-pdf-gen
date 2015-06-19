@@ -41,23 +41,17 @@ if(!class_exists('Wp_Pdf_Gen')) {
 
         function generatePdf()
         {
-            echo "generate PDF";
+            //get content
             $title = get_the_title(get_the_ID());
-            $content = getContent();
-            $upload_dir = wp_upload_dir();
+            $id = get_the_ID();
+            $post = get_post($id);
+            $content = apply_filters('the_content', $post->post_content);
 
+            //create pdf
             $mpdf = new mPDF();
             $mpdf->WriteHTML($content);
             $mpdf->Output('../wp-content/uploads/' . $title . '.pdf', 'F');
             exit;
-        }
-
-        function getContent()
-        {
-            $id = get_the_ID();
-            $post = get_post($id);
-            $content = apply_filters('the_content', $post->post_content);
-            return $content;
         }
 
         /**
