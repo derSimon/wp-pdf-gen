@@ -8,25 +8,32 @@
 ?>
 
 <div clas="wrap">
-    <h2>WP Plugin Template</h2>
-    <form method="post" action="options.php">
+    <h2>WP PDF Generator Settings</h2>
+    <form class="pdf_header_dir" method="post" action="#">
+        <b>Upload a header image for the generated PDF</b><br>
         <?php
             @settings_fields('wp_pdf_gen_group');
             @do_settings_fields('wp_pdf_gen_group');
+
+        //echo get_option('pdf_header_dir'). "</br>";
+        $img_path = get_option('pdf_header_dir');
         ?>
 
-        <table class="form-table">
-            <tr valign="top">
-                <th scope="row"><label for="pdf_header_dir">PDF Header:</label></th>
-                <td><input type="upload_preview" name="pdf_header_dir" id="pdf_header_dir" value="<?php echo get_option('pdf_header_dir'); ?>" /></td>
-            </tr>
-            <tr valign="top">
-                <th scope="row"><label for="pdf_save_dir">Save PDF to:</label></th>
-                <td><input type="text" name="pdf_save_dir" id="pdf_save_dir" value="<?php echo get_option('pdf_save_dir'); ?>" /></td>
-            </tr>
-        </table>
+        <p>
+            <input type="text" name="path" class="image_path" value="<?php echo $img_path; ?>" id="image_path">
+            <input type="button" value="Upload Image" class="button-primary" id="upload_image"/>
+        </p>
+        <p>
+        <div id="show_upload_preview">
 
-        <?php @submit_button(); ?>
-
+            <?php if(! empty($img_path)){
+                ?>
+                <img src="<?php echo $img_path ; ?>">
+        </p>
+                <input type="submit" name="remove" class="button-secondary" id="remove_image" value="Remove Image"/>
+            <?php } ?>
+        </div>
+        </br>
+        <input type="submit" name="submit" class="save_path button-primary" id="submit_button" value="Save Settings">
     </form>
 </div>
