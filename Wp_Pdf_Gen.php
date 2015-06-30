@@ -38,12 +38,12 @@ if(!class_exists('Wp_Pdf_Gen')) {
         function addPdfLink()
         {
             $title = get_the_title(get_the_ID());
-            echo "<a href='/wordpress'>Download Artikel:'$title'</a>";
 
             $upload_dir = wp_upload_dir();
             $upload_dir = $upload_dir['baseurl'];
-            $download = $upload_dir . $this->get_permalink_post_name();
-            echo "<img src='img/Adobe_ExportPDF_icon.png' href='.$download.'/>";
+            $download = $upload_dir ."/". $this->get_permalink_post_name();
+            $img_dir = plugin_dir_url(dirname(__FILE__)).basename(__DIR__);
+            echo "<a href='".$download.".pdf'><img src='".$img_dir."/img/Adobe_ExportPDF_icon.png' width='40pt'/>Download PDF</a>";
 
         }
 
