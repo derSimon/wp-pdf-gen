@@ -61,7 +61,7 @@ if(!class_exists('Wp_Pdf_Gen')) {
             $content = apply_filters('the_content', $post->post_content);
             //add header to pdf file
             $content = '<img src="'. get_option('pdf_header_dir') .' ">'. $content;
-
+            
             //create pdf
             $mpdf = new mPDF();
             $mpdf->WriteHTML($content);
