@@ -15,14 +15,16 @@ include 'Wp_Pdf_Gen.php';
      * WP_Pdf_Gen
      */
 $pdfGenerator = new Wp_Pdf_Gen();
+$post_to_check = get_post(get_the_ID());
 
 /**
-     * Adds Shordcode [pdf] for pdf download link
-     */
+ * Adds Shordcode [pdf] for pdf download link
+ */
 add_shortcode('pdf', array($pdfGenerator,'addPdfLink'));
 
 add_action('publish_post', array($pdfGenerator,'generatePdf'));
 add_action('publish_page', array($pdfGenerator,'generatePdf'));
+
 
 /**
 * Add Settings Link
@@ -39,3 +41,4 @@ if(isset($pdfGenerator)){
     $plugin = plugin_basename(__FILE__);
     add_filter('plugin_action_links_$plugin', 'add_plugin_settings_link');
 }
+

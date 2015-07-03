@@ -23,7 +23,6 @@ if(!class_exists('Wp_Pdf_Gen')) {
 
             add_action('admin_init', array(&$this, 'admin_init'));
             add_action('admin_menu', array(&$this, 'add_menu'));
-            add_action('media_buttons', 'add_pdf_checkbox');
 
             // Register javascript.
             add_action('admin_enqueue_scripts', array(&$this, 'enqueue_admin_js'));
@@ -47,11 +46,6 @@ if(!class_exists('Wp_Pdf_Gen')) {
 
         }
 
-        function add_pdf_checkbox()
-        {
-            echo "<b>PDF </b><input type='checkbox' name='pdf-checkbox' value='1' checked>";
-        }
-
 
         /**
          * generates the PDF File
@@ -60,7 +54,7 @@ if(!class_exists('Wp_Pdf_Gen')) {
         {
             //get content
             //$title = get_the_title(get_the_ID());
-
+            //echo '<script type="text/javascript" language="Javascript">alert("generatepdf")</script>';
             $title = $this->get_permalink_post_name();
             $id = get_the_ID();
             $post = get_post($id);
@@ -72,7 +66,7 @@ if(!class_exists('Wp_Pdf_Gen')) {
             $mpdf = new mPDF();
             $mpdf->WriteHTML($content);
             $mpdf->Output('../wp-content/uploads/' . $title . '.pdf', 'F');
-            exit;
+            //exit;
         }
 
         /**
